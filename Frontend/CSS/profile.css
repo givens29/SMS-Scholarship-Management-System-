@@ -1,0 +1,26 @@
+#profilePicture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 auto;
+}
+
+.profile-picture-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.info {
+  background-color: #e6e6fa;
+  border-radius: 3%;
+}
+
+.profile-body h1 {
+  text-align: center;
+}

@@ -1,0 +1,9 @@
+.step {
+  display: none;
+}
+.step.active {
+  display: block;
+}
+#Help {
+  font-style: italic;
+}

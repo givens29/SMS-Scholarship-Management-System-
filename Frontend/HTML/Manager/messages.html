@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link href="/CSS/nav.css" rel="stylesheet" />
+    <link href="/CSS/message.css" rel="stylesheet" />
+    <title>Message</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <h4 class="navbar-brand" href="#">SMS</h4>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="/HTML/Manager/profile.html"
+                ><i class="fa-solid fa-user"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="/HTML/Manager/messages.html"
+                ><i class="fa-solid fa-message" id="notif"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page"
+                ><i class="fa fa-bell" aria-hidden="true" id="notifBell"></i
+              ></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Manage Students
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="/HTML/Manager/manageNewStudents.html"
+                    >New Students</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="/HTML/Manager/manageStudents.html"
+                    >Students</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="/HTML/Manager/manageStudentsExpenses.html"
+                    >Expenses</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <button class="btn btn-sm" type="submit" id="logoutBtn">
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="expenseModal" class="modalNotif">
+      <div class="modal-contentNotif">
+        <span class="close">&times;</span>
+        <div id="modalBody">
+          <div id="notifications"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row justify-content-between">
+        <div class="col-4 mt-3">
+          <h1>Messages</h1>
+        </div>
+        <div class="col-4 mt-3">
+          <button class="btn mb-2 message" onclick="" id="sendMessage-button">
+            Send New Message
+          </button>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div id="listMessages" class="col"></div>
+        <div id="listConversations" class="col conversation-box"></div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="sendMessageModal"
+      tabindex="-1"
+      aria-labelledby="sendMessageModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sendMessageModalLabel">
+              Send New Message
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="sendMessageForm">
+              <div class="mb-3">
+                <label for="messageTo" class="form-label">To</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="messageTo"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="messageFrom" class="form-label">From</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="messageFrom"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="messageSubject" class="form-label">Subject</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="messageSubject"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="messageBody" class="form-label">Body</label>
+                <textarea
+                  class="form-control"
+                  id="messageBody"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="messageAttachments" class="form-label"
+                  >Attachments</label
+                >
+                <input
+                  class="form-control"
+                  type="file"
+                  id="messageAttachments"
+                  multiple
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/JS/Manager/messages.js"></script>
+    <script src="/JS/navbar.js"></script>
+  </body>
+</html>

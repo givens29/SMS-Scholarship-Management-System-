@@ -1,0 +1,113 @@
+.conversation-box {
+  width: 100%;
+  max-width: 600px;
+  height: 500px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+.file-link {
+  display: block;
+  margin-top: 10px;
+}
+
+.unread-messages {
+  background-color: red;
+  color: white;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.message-form .form-control {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 10px;
+}
+
+.message-form .btn {
+  margin-left: 10px;
+}
+
+.delete {
+  color: #ccc;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .conversation-box {
+    height: 300px;
+  }
+
+  .message-form .form-control {
+    flex: 1 1 100%;
+    margin-bottom: 10px;
+  }
+
+  .message-form .btn {
+    flex: 1 1 100%;
+  }
+}
+.conversation-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.message {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.message.sent {
+  background-color: #f0f0f0; /* Light grey for sent messages */
+}
+
+.message.received {
+  background-color: #e6e6fa;
+}
+
+.message .delete {
+  color: gray;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.form-container {
+  margin-top: 20px;
+}
+
+.message-form {
+  display: flex;
+  align-items: start;
+}
+
+.form-control {
+  margin-right: 10px;
+  flex-grow: 1;
+}
